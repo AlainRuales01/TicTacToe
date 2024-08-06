@@ -2,6 +2,8 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import './components/Card.tsx'
+import Card from './components/Card.tsx'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -24,6 +26,7 @@ function App() {
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
+        <Card imageUrl={reactLogo} content='React logo' onClick={() => alert('React logo clicked')} className='bg-blue-200'/>
       </div>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
