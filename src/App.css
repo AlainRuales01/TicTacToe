@@ -40,3 +40,19 @@
 .read-the-docs {
   color: #888;
 }
+
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.slot {
+  cursor: pointer;
+  /* Otros estilos para las tarjetas */
+}
+
+.card.disabled {
+  pointer-events: none;
+  /* Estilos para las tarjetas deshabilitadas */
+}
