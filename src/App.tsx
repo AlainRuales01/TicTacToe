@@ -13,7 +13,7 @@ function App() {
   
   const [board, setBoard] = useState<Array<string>>(initialBoard);
 
-  const handleClick = (index: number) => {
+  const handleCardClick = (index: number) => {
     if (checkWinner(board) || board[index]) return;
     
     const newBoard = board.slice();
@@ -22,6 +22,10 @@ function App() {
     setTurn(!turn);
     
   };
+
+  const resetGameClick = () => {
+    setBoard(initialBoard);
+  }
   
   const checkWinner = (board: Array<string>) => {
     const winConditions = [
@@ -76,17 +80,20 @@ function App() {
 // }
 
   return (
-    <div className='game-board'>
-      {board.map((value, index) => (
-        <Card
-          key={index}
-          imageUrl = {value === 'X'? xLogo : value === 'O' ? oLogo : defaultLogo}
-          content={value}
-          onClick={() => handleClick(index)}
-          className={value}
-        />
-      ))}
-    </div>
+    <>  
+      <div className='game-board p-4'>
+        {board.map((value, index) => (
+          <Card
+            key={index}
+            imageUrl = {value === 'X'? xLogo : value === 'O' ? oLogo : defaultLogo}
+            content={value}
+            onClick={() => handleCardClick(index)}
+            className={value}
+          />
+        ))}
+      </div>
+      <button onClick={resetGameClick}>Reset Game</button>
+    </>
   )
 }
 
